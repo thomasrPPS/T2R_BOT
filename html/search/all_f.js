@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['t_5fchooseobjectives_105',['t_chooseObjectives',['../structt__choose_objectives.html',1,'']]],
+  ['t_5fclaimroutemove_106',['t_claimRouteMove',['../structt__claim_route_move.html',1,'']]],
+  ['t_5fcolor_107',['t_color',['../_ticket_to_ride_a_p_i_8h.html#ae1cd927f68cebd93d78f5d767629ae05',1,'TicketToRideAPI.h']]],
+  ['t_5fdrawblindcard_108',['t_drawBlindCard',['../structt__draw_blind_card.html',1,'']]],
+  ['t_5fdrawcard_109',['t_drawCard',['../structt__draw_card.html',1,'']]],
+  ['t_5fdrawobjectives_110',['t_drawObjectives',['../structt__draw_objectives.html',1,'']]],
+  ['t_5fgame_111',['t_game',['../structt__game.html',1,'']]],
+  ['t_5fmove_112',['t_move',['../structt__move.html',1,'']]],
+  ['t_5fobjective_113',['t_objective',['../structt__objective.html',1,'']]],
+  ['t_5fplayer_114',['t_player',['../structt__player.html',1,'']]],
+  ['t_5freturn_5fcode_115',['t_return_code',['../client_a_p_i_8h.html#ac65b9bc96e4e23e8e2e1c509c884c757',1,'clientAPI.h']]],
+  ['t_5ftrack_116',['t_track',['../structt__track.html',1,'']]],
+  ['t_5ftypemove_117',['t_typeMove',['../_ticket_to_ride_a_p_i_8h.html#abdf97609b028fa8ce9fd97864bc18f48',1,'TicketToRideAPI.h']]],
+  ['tabtracks_118',['tabTracks',['../structt__game.html#a855e5ccd9bf648c2d3adbbcf53d17436',1,'t_game']]],
+  ['tabtracks2d_119',['tabTracks2D',['../structt__game.html#a89c92ca79a549b12184eef9d03d87426',1,'t_game']]],
+  ['taken_120',['taken',['../structt__track.html#ac8f6680900f21818e9f56669c531ba36',1,'t_track']]],
+  ['tamp_121',['tamp',['../structt__game.html#acc159e5703eefcf35141dd63fbca3d44',1,'t_game']]],
+  ['tickettorideapi_2ec_122',['TicketToRideAPI.c',['../_ticket_to_ride_a_p_i_8c.html',1,'']]],
+  ['tickettorideapi_2eh_123',['TicketToRideAPI.h',['../_ticket_to_ride_a_p_i_8h.html',1,'']]],
+  ['tracks2take_124',['tracks2take',['../structt__player.html#a9b6d1f4e82827bf658469e0d91334bda',1,'t_player']]],
+  ['tritablength_125',['triTabLength',['../move_8c.html#aa58646b81750d18d14af8dec5a23dcbe',1,'triTabLength(t_game *G):&#160;move.c'],['../move_8h.html#aa58646b81750d18d14af8dec5a23dcbe',1,'triTabLength(t_game *G):&#160;move.c']]],
+  ['type_126',['type',['../structt__move.html#a60344a4c2d9c948fd8a1057f6db48c90',1,'t_move']]]
+];

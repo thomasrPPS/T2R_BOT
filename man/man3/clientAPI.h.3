@@ -1,0 +1,132 @@
+.TH "clientAPI.h" 3 "Wed Jan 20 2021" "T2R" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+clientAPI.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_GET_MOVE\fP   128		/* maximum size of the string representing a move */"
+.br
+.ti -1c
+.RI "#define \fBMAX_MESSAGE\fP   512			/* maximum size of the message move */"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBt_return_code\fP { \fBNORMAL_MOVE\fP = 0, \fBWINNING_MOVE\fP = 1, \fBLOOSING_MOVE\fP = -1 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBdispError\fP (const char *fct, const char *msg,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "void \fBdispDebug\fP (const char *fct, int level, const char *msg,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "void \fBconnectToCGS\fP (const char *fct, char *serverName, unsigned int port, char *name)"
+.br
+.ti -1c
+.RI "void \fBcloseCGSConnection\fP (const char *fct)"
+.br
+.ti -1c
+.RI "void \fBwaitForGame\fP (const char *fct, char *training, char *gameName, char *data)"
+.br
+.ti -1c
+.RI "int \fBgetGameData\fP (const char *fct, char *data, size_t ndata)"
+.br
+.ti -1c
+.RI "\fBt_return_code\fP \fBgetCGSMove\fP (const char *fct, char *move, char *msg)"
+.br
+.ti -1c
+.RI "\fBt_return_code\fP \fBsendCGSMove\fP (const char *fct, char *move, char *answer)"
+.br
+.ti -1c
+.RI "void \fBprintCGSGame\fP (const char *fct)"
+.br
+.ti -1c
+.RI "void \fBsendCGSComment\fP (const char *fct, char *comment)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MAX_GET_MOVE   128		/* maximum size of the string representing a move */"
+
+.PP
+Definition at line 28 of file clientAPI\&.h\&.
+.SS "#define MAX_MESSAGE   512			/* maximum size of the message move */"
+
+.PP
+Definition at line 29 of file clientAPI\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBt_return_code\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fINORMAL_MOVE \fP\fP
+.TP
+\fB\fIWINNING_MOVE \fP\fP
+.TP
+\fB\fILOOSING_MOVE \fP\fP
+.PP
+Definition at line 33 of file clientAPI\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void closeCGSConnection (const char * fct)"
+
+.PP
+Definition at line 224 of file clientAPI\&.c\&.
+.SS "void connectToCGS (const char * fct, char * serverName, unsigned int port, char * name)"
+
+.PP
+Definition at line 179 of file clientAPI\&.c\&.
+.SS "void dispDebug (const char * fct, int level, const char * msg,  \&.\&.\&.)"
+
+.PP
+Definition at line 79 of file clientAPI\&.c\&.
+.SS "void dispError (const char * fct, const char * msg,  \&.\&.\&.)"
+
+.PP
+Definition at line 59 of file clientAPI\&.c\&.
+.SS "\fBt_return_code\fP getCGSMove (const char * fct, char * move, char * msg)"
+
+.PP
+Definition at line 336 of file clientAPI\&.c\&.
+.SS "int getGameData (const char * fct, char * data, size_t ndata)"
+
+.PP
+Definition at line 299 of file clientAPI\&.c\&.
+.SS "void printCGSGame (const char * fct)"
+
+.PP
+Definition at line 418 of file clientAPI\&.c\&.
+.SS "void sendCGSComment (const char * fct, char * comment)"
+
+.PP
+Definition at line 442 of file clientAPI\&.c\&.
+.SS "\fBt_return_code\fP sendCGSMove (const char * fct, char * move, char * answer)"
+
+.PP
+Definition at line 380 of file clientAPI\&.c\&.
+.SS "void waitForGame (const char * fct, char * training, char * gameName, char * data)"
+
+.PP
+Definition at line 253 of file clientAPI\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for T2R from the source code\&.

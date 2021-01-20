@@ -1,0 +1,318 @@
+.TH "move.c" 3 "Wed Jan 20 2021" "T2R" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+move.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <math\&.h>\fP
+.br
+\fC#include 'game\&.h'\fP
+.br
+\fC#include 'move\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBN\fP   78"
+.br
+.ti -1c
+.RI "#define \fBINFF\fP   99"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBaddCard\fP (\fBt_player\fP *bzh, \fBt_color\fP card, int add)"
+.br
+.RI "add or remove a card from the data stored into a \fBt_player\fP struct we use it in the updateMyData or updateHisData fucntions "
+.ti -1c
+.RI "int \fBdistancemini\fP (int D[], int Visite[], \fBt_game\fP *G)"
+.br
+.RI "little fucntion to find the smallest element in an array "
+.ti -1c
+.RI "int \fBdijsktra\fP (int city, int dest, \fBt_game\fP *G)"
+.br
+.RI "Dijsktra Algorithm allows us to find the fastest way to success an objective by finding all the towns you need to reach\&. "
+.ti -1c
+.RI "void \fBchemin2tracks\fP (\fBt_game\fP *G, \fBt_objective\fP obj)"
+.br
+.RI "it is linked to the dijsktra algo and allows us to transform the array of cities we have with the algorithm into some \fBt_track\fP we can fill into an array of "
+.ti -1c
+.RI "\fBt_track\fP \fBcanPlaceTrack\fP (\fBt_game\fP *G)"
+.br
+.RI "return a filled \fBt_track\fP if we can place a track in our tracks2take array otherwise it return a \fBt_track\fP with city1 = -1 it looks for colors, length, number of wagons ect maybe the hardest function to code because of all the conditions "
+.ti -1c
+.RI "\fBt_track\fP \fBrandPlace\fP (\fBt_game\fP *G)"
+.br
+.RI "return a filled \fBt_track\fP if we can place a big track otherwise it return a \fBt_track\fP with city1 = -1 it looks for colors, length, number of wagons ect "
+.ti -1c
+.RI "void \fBtriTabLength\fP (\fBt_game\fP *G)"
+.br
+.RI "just a simple function to easily sort the tracks2take by their length "
+.ti -1c
+.RI "void \fBbzhPlay\fP (\fBt_move\fP *move, \fBt_game\fP *G, \fBt_color\fP *lastCard)"
+.br
+.RI "the main brain of the strategie it returns a \fBt_move\fP filled of the data from the move we want to play it tells when to draw a card, take objectives, or to claim a track "
+.ti -1c
+.RI "void \fBinitGame\fP (\fBt_game\fP *G, \fBt_color\fP ourCards[4], int *arrayTracks)"
+.br
+.RI "Initialisation of the game, fill all the fields we use with some default values to avoid seg fault and to gain some time for the following actions, it puts all the data into the \fBt_game\fP G\&. "
+.ti -1c
+.RI "void \fBupdateMyData\fP (\fBt_move\fP *move, \fBt_game\fP *G)"
+.br
+.RI "update my data at every move I play, depending on the move I play it stores the data from the \fBt_move\fP where it needs to go and it recalculate the tracks to take also "
+.ti -1c
+.RI "void \fBupdateHisData\fP (\fBt_move\fP *move, \fBt_game\fP *G)"
+.br
+.RI "update the ennemi data at every move he/her plays, depending on the move he/her plays it stores the data from the \fBt_move\fP where it needs to go "
+.ti -1c
+.RI "void \fBaskMove\fP (\fBt_move\fP *move)"
+.br
+.RI "fucntion by T\&.Hilaire to ask for a move by a human "
+.ti -1c
+.RI "\fBt_return_code\fP \fBplayOurMove\fP (\fBt_move\fP *move, \fBt_color\fP *lastCard)"
+.br
+.RI "fucntion by T\&.Hilaire to play the move and return the t_return_code "
+.ti -1c
+.RI "int \fBneedReplay\fP (\fBt_move\fP *move, \fBt_color\fP lastCard)"
+.br
+.RI "fucntion by T\&.Hilaire to know if we need to replay "
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define INFF   99"
+
+.PP
+Definition at line 8 of file move\&.c\&.
+.SS "#define N   78"
+
+.PP
+Definition at line 7 of file move\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void addCard (\fBt_player\fP * bzh, \fBt_color\fP card, int add)"
+
+.PP
+add or remove a card from the data stored into a \fBt_player\fP struct we use it in the updateMyData or updateHisData fucntions 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBt_player\fP\fP *bzh 
+.br
+\fIt_color\fP card 
+.br
+\fIint\fP add 
+.RE
+.PP
+
+.PP
+Definition at line 17 of file move\&.c\&.
+.SS "void askMove (\fBt_move\fP * move)"
+
+.PP
+fucntion by T\&.Hilaire to ask for a move by a human 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBt_move\fP\fP *move 
+.RE
+.PP
+
+.PP
+Definition at line 697 of file move\&.c\&.
+.SS "void bzhPlay (\fBt_move\fP * move, \fBt_game\fP * G, \fBt_color\fP * lastCard)"
+
+.PP
+the main brain of the strategie it returns a \fBt_move\fP filled of the data from the move we want to play it tells when to draw a card, take objectives, or to claim a track 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBt_move\fP\fP *move 
+.br
+\fI\fBt_game\fP\fP *G 
+.br
+\fIt_color\fP *lastCard 
+.RE
+.PP
+
+.PP
+Definition at line 351 of file move\&.c\&.
+.SS "\fBt_track\fP canPlaceTrack (\fBt_game\fP * G)"
+
+.PP
+return a filled \fBt_track\fP if we can place a track in our tracks2take array otherwise it return a \fBt_track\fP with city1 = -1 it looks for colors, length, number of wagons ect maybe the hardest function to code because of all the conditions 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBt_game\fP\fP *G 
+.RE
+.PP
+
+.PP
+Definition at line 172 of file move\&.c\&.
+.SS "void chemin2tracks (\fBt_game\fP * G, \fBt_objective\fP obj)"
+
+.PP
+it is linked to the dijsktra algo and allows us to transform the array of cities we have with the algorithm into some \fBt_track\fP we can fill into an array of 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBt_game\fP\fP *G 
+.br
+\fI\fBt_objective\fP\fP obj 
+.RE
+.PP
+
+.PP
+Definition at line 121 of file move\&.c\&.
+.SS "int dijsktra (int city, int dest, \fBt_game\fP * G)"
+
+.PP
+Dijsktra Algorithm allows us to find the fastest way to success an objective by finding all the towns you need to reach\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIint\fP city 
+.br
+\fIint\fP dest 
+.br
+\fI\fBt_game\fP\fP *G 
+.RE
+.PP
+
+.PP
+Definition at line 57 of file move\&.c\&.
+.SS "int distancemini (int D[], int Visite[], \fBt_game\fP * G)"
+
+.PP
+little fucntion to find the smallest element in an array 
+.PP
+\fBParameters\fP
+.RS 4
+\fIint\fP D[] 
+.br
+\fIint\fP Visite[] 
+.br
+\fI\fBt_game\fP\fP *G 
+.RE
+.PP
+
+.PP
+Definition at line 36 of file move\&.c\&.
+.SS "void initGame (\fBt_game\fP * G, \fBt_color\fP ourCards[4], int * arrayTracks)"
+
+.PP
+Initialisation of the game, fill all the fields we use with some default values to avoid seg fault and to gain some time for the following actions, it puts all the data into the \fBt_game\fP G\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBt_game\fP\fP *G 
+.br
+\fIt_color\fP ourCards[4] 
+.br
+\fIint\fP *arrayTracks 
+.RE
+.PP
+
+.PP
+Definition at line 475 of file move\&.c\&.
+.SS "int needReplay (\fBt_move\fP * move, \fBt_color\fP lastCard)"
+
+.PP
+fucntion by T\&.Hilaire to know if we need to replay 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBt_move\fP\fP *move 
+.br
+\fIt_color\fP lastCard 
+.RE
+.PP
+
+.PP
+Definition at line 769 of file move\&.c\&.
+.SS "\fBt_return_code\fP playOurMove (\fBt_move\fP * move, \fBt_color\fP * lastCard)"
+
+.PP
+fucntion by T\&.Hilaire to play the move and return the t_return_code 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBt_move\fP\fP *move 
+.br
+\fIt_color*\fP lastCard 
+.RE
+.PP
+
+.PP
+Definition at line 728 of file move\&.c\&.
+.SS "\fBt_track\fP randPlace (\fBt_game\fP * G)"
+
+.PP
+return a filled \fBt_track\fP if we can place a big track otherwise it return a \fBt_track\fP with city1 = -1 it looks for colors, length, number of wagons ect 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBt_game\fP\fP *G 
+.RE
+.PP
+
+.PP
+Definition at line 239 of file move\&.c\&.
+.SS "void triTabLength (\fBt_game\fP * G)"
+
+.PP
+just a simple function to easily sort the tracks2take by their length 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBt_game\fP\fP *G 
+.RE
+.PP
+
+.PP
+Definition at line 324 of file move\&.c\&.
+.SS "void updateHisData (\fBt_move\fP * move, \fBt_game\fP * G)"
+
+.PP
+update the ennemi data at every move he/her plays, depending on the move he/her plays it stores the data from the \fBt_move\fP where it needs to go 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBt_move\fP\fP *move 
+.br
+\fI\fBt_game\fP\fP *G 
+.RE
+.PP
+
+.PP
+Definition at line 657 of file move\&.c\&.
+.SS "void updateMyData (\fBt_move\fP * move, \fBt_game\fP * G)"
+
+.PP
+update my data at every move I play, depending on the move I play it stores the data from the \fBt_move\fP where it needs to go and it recalculate the tracks to take also 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBt_move\fP\fP *move 
+.br
+\fI\fBt_game\fP\fP *G 
+.RE
+.PP
+
+.PP
+Definition at line 575 of file move\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for T2R from the source code\&.

@@ -1,0 +1,192 @@
+.TH "TicketToRideAPI.h" 3 "Wed Jan 20 2021" "T2R" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TicketToRideAPI.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'clientAPI\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBt_objective\fP"
+.br
+.ti -1c
+.RI "struct \fBt_claimRouteMove\fP"
+.br
+.ti -1c
+.RI "struct \fBt_drawCard\fP"
+.br
+.ti -1c
+.RI "struct \fBt_drawBlindCard\fP"
+.br
+.ti -1c
+.RI "struct \fBt_drawObjectives\fP"
+.br
+.ti -1c
+.RI "struct \fBt_chooseObjectives\fP"
+.br
+.ti -1c
+.RI "struct \fBt_move\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBt_color\fP { \fBNONE\fP = 0, \fBPURPLE\fP, \fBWHITE\fP, \fBBLUE\fP, \fBYELLOW\fP, \fBORANGE\fP, \fBBLACK\fP, \fBRED\fP, \fBGREEN\fP, \fBMULTICOLOR\fP }"
+.br
+.ti -1c
+.RI "enum \fBt_typeMove\fP { \fBCLAIM_ROUTE\fP = 1, \fBDRAW_BLIND_CARD\fP = 2, \fBDRAW_CARD\fP = 3, \fBDRAW_OBJECTIVES\fP = 4, \fBCHOOSE_OBJECTIVES\fP = 5 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBconnectToServer\fP (char *serverName, unsigned int port, char *name)"
+.br
+.ti -1c
+.RI "void \fBcloseConnection\fP ()"
+.br
+.ti -1c
+.RI "void \fBwaitForT2RGame\fP (char *gameType, char *gameName, int *nbCities, int *nbTracks)"
+.br
+.ti -1c
+.RI "int \fBgetMap\fP (int *tracks, \fBt_color\fP faceUp[5], \fBt_color\fP cards[4])"
+.br
+.ti -1c
+.RI "\fBt_return_code\fP \fBgetMove\fP (\fBt_move\fP *move, int *replay)"
+.br
+.ti -1c
+.RI "\fBt_return_code\fP \fBclaimRoute\fP (int city1, int city2, int color, int nbLocomotives)"
+.br
+.ti -1c
+.RI "\fBt_return_code\fP \fBdrawBlindCard\fP (\fBt_color\fP *card)"
+.br
+.ti -1c
+.RI "\fBt_return_code\fP \fBdrawCard\fP (\fBt_color\fP card, \fBt_color\fP deck[5])"
+.br
+.ti -1c
+.RI "\fBt_return_code\fP \fBdrawObjectives\fP (\fBt_objective\fP obj[3])"
+.br
+.ti -1c
+.RI "\fBt_return_code\fP \fBchooseObjectives\fP (int objectiveCards[3])"
+.br
+.ti -1c
+.RI "void \fBprintMap\fP ()"
+.br
+.ti -1c
+.RI "void \fBsendComment\fP (char *comment)"
+.br
+.ti -1c
+.RI "void \fBprintCity\fP (int city)"
+.br
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBt_color\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fINONE \fP\fP
+.TP
+\fB\fIPURPLE \fP\fP
+.TP
+\fB\fIWHITE \fP\fP
+.TP
+\fB\fIBLUE \fP\fP
+.TP
+\fB\fIYELLOW \fP\fP
+.TP
+\fB\fIORANGE \fP\fP
+.TP
+\fB\fIBLACK \fP\fP
+.TP
+\fB\fIRED \fP\fP
+.TP
+\fB\fIGREEN \fP\fP
+.TP
+\fB\fIMULTICOLOR \fP\fP
+.PP
+Definition at line 39 of file TicketToRideAPI\&.h\&.
+.SS "enum \fBt_typeMove\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICLAIM_ROUTE \fP\fP
+.TP
+\fB\fIDRAW_BLIND_CARD \fP\fP
+.TP
+\fB\fIDRAW_CARD \fP\fP
+.TP
+\fB\fIDRAW_OBJECTIVES \fP\fP
+.TP
+\fB\fICHOOSE_OBJECTIVES \fP\fP
+.PP
+Definition at line 53 of file TicketToRideAPI\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBt_return_code\fP chooseObjectives (int objectiveCards[3])"
+
+.PP
+Definition at line 333 of file TicketToRideAPI\&.c\&.
+.SS "\fBt_return_code\fP claimRoute (int city1, int city2, int color, int nbLocomotives)"
+
+.PP
+Definition at line 258 of file TicketToRideAPI\&.c\&.
+.SS "void closeConnection ()"
+
+.PP
+Definition at line 85 of file TicketToRideAPI\&.c\&.
+.SS "void connectToServer (char * serverName, unsigned int port, char * name)"
+
+.PP
+Definition at line 74 of file TicketToRideAPI\&.c\&.
+.SS "\fBt_return_code\fP drawBlindCard (\fBt_color\fP * card)"
+
+.PP
+Definition at line 270 of file TicketToRideAPI\&.c\&.
+.SS "\fBt_return_code\fP drawCard (\fBt_color\fP card, \fBt_color\fP deck[5])"
+
+.PP
+Definition at line 288 of file TicketToRideAPI\&.c\&.
+.SS "\fBt_return_code\fP drawObjectives (\fBt_objective\fP obj[3])"
+
+.PP
+Definition at line 308 of file TicketToRideAPI\&.c\&.
+.SS "int getMap (int * tracks, \fBt_color\fP faceUp[5], \fBt_color\fP cards[4])"
+
+.PP
+Definition at line 155 of file TicketToRideAPI\&.c\&.
+.SS "\fBt_return_code\fP getMove (\fBt_move\fP * move, int * replay)"
+
+.PP
+Definition at line 210 of file TicketToRideAPI\&.c\&.
+.SS "void printCity (int city)"
+
+.PP
+Definition at line 371 of file TicketToRideAPI\&.c\&.
+.SS "void printMap ()"
+
+.PP
+Definition at line 348 of file TicketToRideAPI\&.c\&.
+.SS "void sendComment (char * comment)"
+
+.PP
+Definition at line 361 of file TicketToRideAPI\&.c\&.
+.SS "void waitForT2RGame (char * gameType, char * gameName, int * nbCities, int * nbTracks)"
+
+.PP
+Definition at line 122 of file TicketToRideAPI\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for T2R from the source code\&.

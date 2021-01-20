@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['canplacetrack_8',['canPlaceTrack',['../move_8c.html#a5c74572a195fbd1f6b774910232269c8',1,'canPlaceTrack(t_game *G):&#160;move.c'],['../move_8h.html#a5c74572a195fbd1f6b774910232269c8',1,'canPlaceTrack(t_game *G):&#160;move.c']]],
+  ['card_9',['card',['../structt__draw_card.html#a07cad9daa1c863b60eabecd1538acf9f',1,'t_drawCard::card()'],['../structt__draw_blind_card.html#a07cad9daa1c863b60eabecd1538acf9f',1,'t_drawBlindCard::card()']]],
+  ['cards_10',['cards',['../structt__player.html#a5128779e02e046870b70bb758d617c0a',1,'t_player']]],
+  ['chemin_11',['chemin',['../structt__game.html#a5bb6df7f4c56a4b40d20c4d7c35a9d24',1,'t_game']]],
+  ['chemin2tracks_12',['chemin2tracks',['../move_8c.html#a83a30ed599eaf1c2d537f386d7255c29',1,'chemin2tracks(t_game *G, t_objective obj):&#160;move.c'],['../move_8h.html#a83a30ed599eaf1c2d537f386d7255c29',1,'chemin2tracks(t_game *G, t_objective obj):&#160;move.c']]],
+  ['choose_5fobjectives_13',['CHOOSE_OBJECTIVES',['../_ticket_to_ride_a_p_i_8h.html#abdf97609b028fa8ce9fd97864bc18f48a315dd26b5e08f6d459c6a94ea74b4f90',1,'TicketToRideAPI.h']]],
+  ['chooseobjectives_14',['chooseObjectives',['../structt__move.html#a9b36dd92cc5dcaea796a6241fd729cca',1,'t_move::chooseObjectives()'],['../_ticket_to_ride_a_p_i_8c.html#a341c4800d171aa1f5d1f3fbcfeb99cea',1,'chooseObjectives(int objectiveCards[3]):&#160;TicketToRideAPI.c'],['../_ticket_to_ride_a_p_i_8h.html#a341c4800d171aa1f5d1f3fbcfeb99cea',1,'chooseObjectives(int objectiveCards[3]):&#160;TicketToRideAPI.c']]],
+  ['chosen_15',['chosen',['../structt__choose_objectives.html#afd6b49f7220a6d115ef66389eabd15f2',1,'t_chooseObjectives']]],
+  ['city1_16',['city1',['../structt__track.html#a2ecc7d5609e54f88bb2517d324e2783e',1,'t_track::city1()'],['../structt__objective.html#a2ecc7d5609e54f88bb2517d324e2783e',1,'t_objective::city1()'],['../structt__claim_route_move.html#a2ecc7d5609e54f88bb2517d324e2783e',1,'t_claimRouteMove::city1()']]],
+  ['city2_17',['city2',['../structt__track.html#ab241c04e823a38f8f4310635c508e637',1,'t_track::city2()'],['../structt__objective.html#ab241c04e823a38f8f4310635c508e637',1,'t_objective::city2()'],['../structt__claim_route_move.html#ab241c04e823a38f8f4310635c508e637',1,'t_claimRouteMove::city2()']]],
+  ['citynames_18',['cityNames',['../_ticket_to_ride_a_p_i_8c.html#aa1271d4a29c24e029ef758fe1bc5cc65',1,'TicketToRideAPI.c']]],
+  ['claim_5froute_19',['CLAIM_ROUTE',['../_ticket_to_ride_a_p_i_8h.html#abdf97609b028fa8ce9fd97864bc18f48a133b4471706dacbb71f44902d1b2fed5',1,'TicketToRideAPI.h']]],
+  ['claimroute_20',['claimRoute',['../structt__move.html#aa755a201aa5c0328db178131afdd3af0',1,'t_move::claimRoute()'],['../_ticket_to_ride_a_p_i_8c.html#a2f900b7db424701d4771effa6ed64e02',1,'claimRoute(int city1, int city2, int color, int nbLocomotives):&#160;TicketToRideAPI.c'],['../_ticket_to_ride_a_p_i_8h.html#a2f900b7db424701d4771effa6ed64e02',1,'claimRoute(int city1, int city2, int color, int nbLocomotives):&#160;TicketToRideAPI.c']]],
+  ['clientapi_2ec_21',['clientAPI.c',['../client_a_p_i_8c.html',1,'']]],
+  ['clientapi_2eh_22',['clientAPI.h',['../client_a_p_i_8h.html',1,'']]],
+  ['closecgsconnection_23',['closeCGSConnection',['../client_a_p_i_8c.html#aab306c18bc38efddead0560c55fcd24b',1,'closeCGSConnection(const char *fct):&#160;clientAPI.c'],['../client_a_p_i_8h.html#aab306c18bc38efddead0560c55fcd24b',1,'closeCGSConnection(const char *fct):&#160;clientAPI.c']]],
+  ['closeconnection_24',['closeConnection',['../_ticket_to_ride_a_p_i_8c.html#aaf912c696192e6a13eb70526891b4cd2',1,'closeConnection():&#160;TicketToRideAPI.c'],['../_ticket_to_ride_a_p_i_8h.html#aaf912c696192e6a13eb70526891b4cd2',1,'closeConnection():&#160;TicketToRideAPI.c']]],
+  ['color_25',['color',['../structt__claim_route_move.html#a604bdd8ae93b43b97200daa9f5d691b9',1,'t_claimRouteMove']]],
+  ['color1_26',['color1',['../structt__track.html#a3b99105f252dcc36d98d096fd75eec5b',1,'t_track']]],
+  ['color2_27',['color2',['../structt__track.html#a59da32d20c640f55bbd102e0bcd271bf',1,'t_track']]],
+  ['connecttocgs_28',['connectToCGS',['../client_a_p_i_8c.html#a3073c08d8d3b67eeb7c0d1793595a12f',1,'connectToCGS(const char *fct, char *serverName, unsigned int port, char *name):&#160;clientAPI.c'],['../client_a_p_i_8h.html#a3073c08d8d3b67eeb7c0d1793595a12f',1,'connectToCGS(const char *fct, char *serverName, unsigned int port, char *name):&#160;clientAPI.c']]],
+  ['connecttoserver_29',['connectToServer',['../_ticket_to_ride_a_p_i_8c.html#a00e7b0e980d59d819754bcf2a9f0c289',1,'connectToServer(char *serverName, unsigned int port, char *name):&#160;TicketToRideAPI.c'],['../_ticket_to_ride_a_p_i_8h.html#a00e7b0e980d59d819754bcf2a9f0c289',1,'connectToServer(char *serverName, unsigned int port, char *name):&#160;TicketToRideAPI.c']]]
+];
