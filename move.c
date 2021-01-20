@@ -27,6 +27,12 @@ void addCard(t_player *bzh, t_color card, int add){
 	}
 }
 
+/*!
+* @brief little fucntion to find the smallest element in an array
+* @param int D[]
+* @param int Visite[]
+* @param t_game *G
+*/
 int distancemini(int D[],int Visite[],t_game *G ){
     int min,indice;
     // Initialisation
@@ -41,6 +47,13 @@ int distancemini(int D[],int Visite[],t_game *G ){
     return indice;
 }
 
+/*!
+* @brief Dijsktra Algorithm allows us to find the fastest way to success an objective
+* by finding all the towns you need to reach
+* @param int city
+* @param int dest
+* @param t_game *G
+*/
 int dijsktra(int city,int dest,t_game *G){
     int visite[G->nbCities];
     //int chemin[100]={0};
@@ -93,12 +106,18 @@ int dijsktra(int city,int dest,t_game *G){
     }while(k != city);
 
     for (int i =0; i<6; i++){
-        printf("%d ",G->chemin[i]);
+        //printf("%d ",G->chemin[i]);
     }
-    printf("\n");
+    //printf("\n");
 	return 1;
 }
 
+/*!
+* @brief it is linked to the dijsktra algo and allows us to transform the array of
+* cities we have with the algorithm into some t_track we can fill into an array of
+* @param t_game *G
+* @param t_objective obj
+*/
 void chemin2tracks(t_game *G,t_objective obj){
     int k=0;
     int bol=0;
@@ -135,14 +154,21 @@ void chemin2tracks(t_game *G,t_objective obj){
 			}
 		}
     }
-	printf("\n\n obj city 1 %d \n\n",obj.city1);
-	printf("\n\n obj k+1 1 %d \n\n",G->chemin[k]);
+	//printf("\n\n obj city 1 %d \n\n",obj.city1);
+	//printf("\n\n obj k+1 1 %d \n\n",G->chemin[k]);
 
     for (int i=0; i<=100; i++){
          G->chemin[i]=69;
      }
 }
 
+/*!
+* @brief return a filled t_track if we can place a track in our tracks2take array
+* otherwise it return a t_track with city1 = -1
+* it looks for colors, length, number of wagons ect
+* maybe the hardest function to code because of all the conditions
+* @param t_game *G
+*/
 t_track canPlaceTrack(t_game *G){
     int multi = G->players[0].cards[9],color,colormul;
     t_track retour;
@@ -198,29 +224,18 @@ t_track canPlaceTrack(t_game *G){
                     return retour;
                 }
             }
-			/*
-            else if (G->players[0].tracks2take[i].color2 == 9){
-                if (G->players[0].tracks2take[i].length <= G->players[0].cards[j] + multi){
-                    retour.city1=G->players[0].tracks2take[i].city1;
-                    retour.city2=G->players[0].tracks2take[i].city2;
-                    retour.length=G->players[0].tracks2take[i].length;
-                    color=j;
-                    colormul=G->players[0].tracks2take[i].length - G->players[0].cards[j];
-                    if (colormul <0){
-                        colormul=0;
-                    }
-                    retour.multi = colormul;
-                    retour.color1=color;
-                    retour.color2=color;
-                    return retour;
-                }
-            }*/
         }
     }
     retour.city1 = -1;
     return retour;
 }
 
+/*!
+* @brief return a filled t_track if we can place a big track
+* otherwise it return a t_track with city1 = -1
+* it looks for colors, length, number of wagons ect
+* @param t_game *G
+*/
 t_track randPlace(t_game *G){
 	int multi = G->players[0].cards[9],color,colormul;
     t_track retour;
@@ -302,6 +317,10 @@ t_track randPlace(t_game *G){
     return retour;
 }
 
+/*!
+* @brief just a simple function to easily sort the tracks2take by their length
+* @param t_game *G
+*/
 void triTabLength(t_game *G){
 	t_track tmp;
 	int i, j;
@@ -321,19 +340,25 @@ void triTabLength(t_game *G){
 	}
 }
 
+/*!
+* @brief the main brain of the strategie
+* it returns a t_move filled of the data from the move we want to play
+* it tells when to draw a card, take objectives, or to claim a track
+* @param t_move *move
+* @param t_game *G
+* @param t_color *lastCard
+*/
 void bzhPlay(t_move* move, t_game *G, t_color* lastCard){
     int objSeq[2]={4,5};
-    int tour=0;
-    int obj=0;
 	int dijsktra =0;
     t_track aplacer=canPlaceTrack(G);
 	t_track random=randPlace(G);
 	//t_track random;
-	if (((G->players[0].nbWagons > 10 && dijsktra==10) || (!(G->players[0].nbWagons > 8) && dijsktra!=10)) || (G->players[0].nbWagons > 25)){
+	if (((G->players[0].nbWagons > 10 && dijsktra==12) || (!(G->players[0].nbWagons > 8) && dijsktra!=10)) || (G->players[0].nbWagons > 25)){
 		aplacer.city1 = -1;
 	}
-    printf("aplacer city1 %d city2 %d color %d multi %d\n",aplacer.city1,aplacer.city2,aplacer.color1,aplacer.multi );
-	printf("random city1 %d city2 %d color %d multi %d\n",random.city1,random.city2,random.color1,random.multi );
+    //printf("aplacer city1 %d city2 %d color %d multi %d\n",aplacer.city1,aplacer.city2,aplacer.color1,aplacer.multi );
+	//printf("random city1 %d city2 %d color %d multi %d\n",random.city1,random.city2,random.color1,random.multi );
 
 	/*
     if (G->indice > 5 && G->players[0].nbTracks2take < 3 ){
@@ -395,15 +420,32 @@ void bzhPlay(t_move* move, t_game *G, t_color* lastCard){
         }
         move->type = 2;
     }
-	/*
-    if (move->type == CLAIM_ROUTE){
-        move->claimRoute.city1=aplacer.city1;
-        move->claimRoute.city2=aplacer.city2;
-        move->claimRoute.color=aplacer.color1;
-        move->claimRoute.nbLocomotives=aplacer.multi;
-    }*/
-
 	if (move->type == CHOOSE_OBJECTIVES){
+		int un=0,deux=0,trois=0;
+		//(A || B) && !(A && B)
+		/*
+		if (G->tamp[0].score <= G->tamp[2].score){
+			un = 1;
+			if (G->tamp[0].score <= G->tamp[1].score){
+				deux = 1;
+			}
+		}
+		if (G->tamp[1].score <= G->tamp[0].score){
+			deux =1;
+			if (G->tamp[1].score <= G->tamp[2].score){
+				deux = 1;
+			}
+		}
+		if (G->tamp[2].score <= G->tamp[1].score){
+			trois = 1;
+			if (G->tamp[2].score <= G->tamp[0].score){
+				un = 1;
+			}
+		}
+		move->chooseObjectives.chosen[0] = un;
+		move->chooseObjectives.chosen[1] = deux;
+		move->chooseObjectives.chosen[2] = trois;
+		*/
 
 		if (G->tamp[0].score < G->tamp[1].score){
 			move->chooseObjectives.chosen[0] = 1;
@@ -415,10 +457,21 @@ void bzhPlay(t_move* move, t_game *G, t_color* lastCard){
 			move->chooseObjectives.chosen[1] = 1;
 			move->chooseObjectives.chosen[2] = 0;
 		}
+		printf("score 1 : %d score 2 : %d score 3 : %d",G->tamp[0].score,G->tamp[1].score,G->tamp[2].score);
+		printf("un : %d deux : %d trois : %d \n", un,deux, trois);
+
 	}
     G->indice ++;
 }
 
+/*!
+* @brief Initialisation of the game, fill all the fields we use with some default values
+* to avoid seg fault and to gain some time for the following actions,
+* it puts all the data into the t_game G
+* @param t_game *G
+* @param t_color ourCards[4]
+* @param int *arrayTracks
+*/
 void initGame(t_game *G,t_color ourCards[4],int* arrayTracks){
     for (int i=0; i<=100; i++){
         G->chemin[i]=69;
@@ -513,10 +566,16 @@ void initGame(t_game *G,t_color ourCards[4],int* arrayTracks){
 	*/
 }
 
+/*!
+* @brief update my data at every move I play, depending on the move I play it stores
+* the data from the t_move where it needs to go and it recalculate the tracks to take also
+* @param t_move *move
+* @param t_game *G
+*/
 void updateMyData(t_move* move,t_game *G){
 	int succes=0,r,t;
 
-    if ((G->players[0].objectives[0].city1 != -1 && G->players[0].objectives[0].city2 != -1) && G->indice < 7){
+    if (G->players[0].objectives[0].city1 != -1 && G->players[0].objectives[0].city2 != -1 && G->indice < 7){
 		r=G->players[0].objectives[0].score;
 		t=G->players[0].objectives[1].score;
 		/*
@@ -562,14 +621,6 @@ void updateMyData(t_move* move,t_game *G){
 				G->players[0].nbWagons -= 1;
         }
         G->tabTracks2D[move->claimRoute.city1][move->claimRoute.city2].length = 0;
-        /*
-        for (int i=0; i<= G->tabTracks2D[move->claimRoute.city1][move->claimRoute.city2].length - move->claimRoute.nbLocomotives ; i++){
-            addCard(&G->players[0], move->claimRoute.color, 0);
-        }
-        for (int i=0; i<= move->claimRoute.nbLocomotives ; i++){
-            addCard(&G->players[0], 9, 0);
-        }
-        */
     }
     if (move->type == 2 /* draw blind */){
         //G->players[0].nbCards +=1;
@@ -597,6 +648,12 @@ void updateMyData(t_move* move,t_game *G){
     }
 }
 
+/*!
+* @brief update the ennemi data at every move he/her plays, depending on the move he/her plays it stores
+* the data from the t_move where it needs to go
+* @param t_move *move
+* @param t_game *G
+*/
 void updateHisData(t_move* move,t_game *G){
     if (move->type == 1 /* claim route*/){
         G->tabTracks2D[move->claimRoute.city1][move->claimRoute.city2].taken = 1;
@@ -622,7 +679,7 @@ void updateHisData(t_move* move,t_game *G){
         G->players[1].nbCards +=1;
     }
     if (move->type == 4 /* draw objs */){
-        printf("attention ça prend des objs \n");
+        //printf("attention ça prend des objs \n");
     }
     if (move->type == 5 /* choose objs */){
         for (int i=0; i<3; i++){
@@ -633,7 +690,10 @@ void updateHisData(t_move* move,t_game *G){
     }
 }
 
-/* ask for a move */
+/*!
+* @brief fucntion by T.Hilaire to ask for a move by a human
+* @param t_move *move
+*/
 void askMove(t_move* move){
 	/* ask for the type */
 	printf("Choose a move\n");
@@ -660,8 +720,11 @@ void askMove(t_move* move){
 	}
 }
 
-/* plays the move given as a parameter (send to the server)
- * returns the return code */
+/*!
+* @brief fucntion by T.Hilaire to play the move and return the t_return_code
+* @param t_move *move
+* @param t_color* lastCard
+*/
 t_return_code playOurMove(t_move* move, t_color* lastCard){
 	t_return_code ret;
 
@@ -697,7 +760,12 @@ t_return_code playOurMove(t_move* move, t_color* lastCard){
 	}
 	return ret;
 }
-/* tell if we need to replay */
+
+/*!
+* @brief fucntion by T.Hilaire to know if we need to replay
+* @param t_move *move
+* @param t_color lastCard
+*/
 int needReplay(t_move* move, t_color lastCard){
 	int replay = 0;
 

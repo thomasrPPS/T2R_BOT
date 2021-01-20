@@ -99,8 +99,8 @@ typedef struct{
 	t_typeMove type;
 	union{
 		t_claimRouteMove claimRoute;
-		t_drawBlindCard drawBlindCard;
 		t_drawCard drawCard;
+		t_drawBlindCard drawBlindCard;
 		t_drawObjectives drawObjectives;
 		t_chooseObjectives chooseObjectives;
 	};
@@ -119,12 +119,15 @@ typedef struct{
  */
 void connectToServer(char* serverName, unsigned int port, char* name);
 
+
+
 /* ----------------------------------
  * Close the connection to the server
  * because we are polite
  *
  */
 void closeConnection();
+
 
 /* ----------------------------------------------------------------
  * Wait for a T2R Game, and retrieve its name and first data
